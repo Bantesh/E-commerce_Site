@@ -27,7 +27,7 @@ router.get('/cart', async (req, res)=>{
 
 // We can discuss this approach 
 
-router.post('/cart/:id', async (req, res)=>{
+router.post('/cart/:id/:action', async (req, res)=>{
     try{
            
         const cart = await Cart.findById({_id:req.params.id});
@@ -62,7 +62,7 @@ router.post('/cart/:id', async (req, res)=>{
         }
         await cart.save();
         res.send(cart)
-
+        print(cart)
     } catch(e){
        res.send("" + e)
     }
