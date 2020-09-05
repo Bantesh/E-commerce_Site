@@ -1,5 +1,6 @@
 const Cart = require("../models/cart")
 const express = require('express')
+const auth = require('../middleware/auth')
 const router = new express.Router()
 const print = console.log
 router.post('/cart', async (req, res)=>{
@@ -14,11 +15,11 @@ router.post('/cart', async (req, res)=>{
         res.send("" + e)
      }
 })
-router.get('/cart', async (req, res)=>{
+router.get('/cart',auth.loginRequired, async (req, res)=>{
     try{
            print(req.body)
-           const cart = await (await Cart.findOne({userId:req.body.userId}).populate("products.pid")).execPopulate()
-           res.send(cart)
+           const cart = await (await Cart.findOne({userId:req.user._id}).populate("products.pid")).execPopulate()
+           res.render("cart")
 
     } catch(e){
        res.send("" + e)

@@ -40,7 +40,7 @@ router.get('/signin',(req, res)=>{
 //     }
 // })
 router.post('/signIn', passport.authenticate('local-login', {
-    successRedirect: '/signUp',
+    successRedirect: '/',
     failureRedirect: '/signIn'
     }))
 

@@ -27,7 +27,7 @@ router.get('/', async (req,res)=>{
       
 })
 
-router.get('/:id', async (req,res)=>{
+router.get('/item/:id', async (req,res)=>{
    
   try{
      const product = await Product.findOne({_id:req.params.id})

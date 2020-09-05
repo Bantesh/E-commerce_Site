@@ -1,0 +1,11 @@
+.product-img {
+    width: 150px;
+}
+.product-card {
+    border: 1px solid silver;
+    padding: 10px;
+}
+.img-left {
+    border: 1px solid silver;
+    padding: 10px;
+}
